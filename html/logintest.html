@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginpage.css">
+    <title>Bejelentkezés</title>
+</head>
+<body>
+    <h1>Ezt lehet kivesszük majd de ide kerülhet akár valami fontos és lényeges is</h1>
+    <form action="">
+        <div class="headingsContainer">
+            <h3>Bejelentkezés</h3>
+            <p>Jelentkezz be a felhasználóneveddel és a jelszavaddal</p>
+        </div>
+        <div class="mainContainer">
+            <label for="username">Felhasználónév</label>
+            <input type="text" placeholder="Ide írd a felhasználóneved" name="username" required>
+            <br><br>
+            <label for="pswrd">Jelszó</label>
+            <input type="password" placeholder="Ide írd a jelszavad" name="pswrd" required>
+            <div class="subcontainer">
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Emlékezz rám
+                </label>
+            </div>
+            <button type="submit">Bejelentkezés</button>
+            <p class="register">Nem vagy még tag?  <a href="#">Regisztrálj itt!</a></p>
+        </div>
+    </form>
+</body>
+</html>
