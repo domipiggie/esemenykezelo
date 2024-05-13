@@ -5,26 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/loginpage.css">
-    <title>Bejelentkezés</title>
+    <title>Regisztráció</title>
 </head>
 <body>
-    <h1>Mielőtt belépnél...</h1>
+    <h1>Üdvözlünk közöttünk!</h1>
     <form action="">
         <div class="headingsContainer">
-            <h3>Bejelentkezés</h3>
-            <p>Jelentkezz be a felhasználóneveddel és a jelszavaddal</p>
+            <h3>Regisztráció</h3>
+            <p>Adj meg egy szabadon választott felhasználónevet és egy jelszót</p>
         </div>
         <div class="mainContainer">
             <label for="username">Felhasználónév</label>
             <input type="text" placeholder="Ide írd a felhasználóneved" name="username" required>
-            <br><br>
             <label for="pswrd">Jelszó</label>
             <input type="password" placeholder="Ide írd a jelszavad" name="pswrd" required>
+            <br><br>
+            <label for="pswrd">Jelszó megismétlése</label>
+            <input type="password" placeholder="Ide írd a jelszavad" name="pswrdRep" required>
             <div class="subcontainer">
                 
             </div>
-            <button type="submit">Bejelentkezés</button>
-            <p class="register">Nem vagy még tag?  <a href="register.html">Regisztrálj itt!</a></p>
+            <button type="submit">Regisztráció</button>
+            
         </div>
     </form>
 </body>
