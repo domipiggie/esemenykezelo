@@ -1,1 +1,0 @@
-start py/Scripts/python.exe py/web.py
