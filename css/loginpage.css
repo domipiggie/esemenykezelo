@@ -2,9 +2,9 @@
    
     background: #fccb90;
     
-    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    background: -webkit-linear-gradient(69.7deg, rgb(216, 81, 82) 40%, rgb(154, 27, 69) 100.1%);
     
-    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    background: linear-gradient(69.7deg, rgb(216, 81, 82) 40%, rgb(154, 27, 69) 100.1%);
     }
     
     @media (min-width: 768px) {
