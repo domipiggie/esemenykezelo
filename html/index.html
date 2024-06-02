@@ -4,107 +4,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Jegyzet App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .gradient-form {
+            background-color: #eee;
+        }
+
+        .card {
+            border-radius: 15px;
+        }
+
+        .gradient-custom-2 {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .text-white h4 {
+            color: white;
+        }
+
+        .text-white p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .list-group-item {
+            border: none;
+        }
+
+        .btn-outline-danger {
+            color: #ff416c;
+            border-color: #ff416c;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #ff416c;
+            color: white;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .header {
+            background-color: #ff416c;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .header .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        .header .nav-link:hover {
+            color: #ff4b2b;
+        }
+
+        .header .navbar-nav {
+            flex: 1;
+            justify-content: space-between;
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class=" list-group-item">
-                    <h1>Új jegyzet</h1>
-                    <form>
-                        <div class="mb-3">
-                            <label for="titleInput" class="form-label">Cím</label>
-                            <input type="text" class="form-control" id="titleInput" placeholder="Add meg a címet">
-                        </div>
-                        <div class="mb-3">
-                            <label for="noteInput" class="form-label">Jegyzet</label>
-                            <textarea class="form-control" id="noteInput" rows="3"
-                                placeholder="Írd ide a jegyzetet"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="prioritySelect">Prioritás:</label>
-                            <select class="form-control" id="prioritySelect">
-                                <option value="Fontos">Fontos</option>
-                                <option value="Későbbre halasztva">Későbbre halasztva</option>
-                                <option value="Továbbítani">Továbbítani</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary" id="sendNote">Jegyzet hozzáadása</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="editForm" style="display: none;" class="list-group-item">
-                    <form>
-                        <h2>Jegyzet szerkesztése</h2>
-                        <div class="mb-3">
-                            <label for="editId" class="form-label">ID</label>
-                            <input type="text" class="form-control" id="editId" disabled="true">
-                        </div>
-                        <div class="mb-3">
-                            <label for="edittitleInput" class="form-label">Cím</label>
-                            <input type="text" class="form-control" id="edittitleInput">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editnoteInput" class="form-label">Jegyzet</label>
-                            <textarea class="form-control" id="editnoteInput" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary" id="editNote">Jegyzet szerkesztése</button>
-                        </div>
-                    </form>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Főoldal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Regisztráció</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="loginest.html">Bejelentkezés</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-9">
-                <h1>Jegyzetek</h1>
-                <div class="mb-3">
-                    <label for="search" class="form-label">Keresés</label>
-                    <input type="text" class="form-control" id="search">
-                </div>
-                <ul class="list-group" id="messageList">
+        </nav>
+    </header>
 
-                </ul>
+    <section class="h-100 gradient-form">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-4 gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4">Jegyzet App</h4>
+                                    <p class="small mb-0">Egyszerű és hatékony módja a jegyzetek kezelésének és rendszerezésének. Adj hozzá új jegyzeteket, szerkeszd a meglévőket, és kövesd nyomon a fontos feladataidat.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-center">
+                                        <h1>Új jegyzet</h1>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="titleInput" class="form-label">Cím</label>
+                                                <input type="text" class="form-control" id="titleInput" placeholder="Add meg a címet">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="noteInput" class="form-label">Jegyzet</label>
+                                                <textarea class="form-control" id="noteInput" rows="3" placeholder="Írd ide a jegyzetet"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="prioritySelect">Prioritás:</label>
+                                                <select class="form-control" id="prioritySelect">
+                                                    <option value="Fontos">Fontos</option>
+                                                    <option value="Későbbre halasztva">Későbbre halasztva</option>
+                                                    <option value="Továbbítani">Továbbítani</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <button class="btn btn-outline-danger" id="sendNote">Jegyzet hozzáadása</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div id="editForm" style="display: none;" class="list-group-item">
+                                        <form>
+                                            <h2>Jegyzet szerkesztése</h2>
+                                            <div class="mb-3">
+                                                <label for="editId" class="form-label">ID</label>
+                                                <input type="text" class="form-control" id="editId" disabled="true">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="edittitleInput" class="form-label">Cím</label>
+                                                <input type="text" class="form-control" id="edittitleInput">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editnoteInput" class="form-label">Jegyzet</label>
+                                                <textarea class="form-control" id="editnoteInput" rows="3"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <button class="btn btn-outline-danger" id="editNote">Jegyzet szerkesztése</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <h1>Jegyzetek</h1>
+                                    <div class="mb-3">
+                                        <label for="search" class="form-label">Keresés</label>
+                                        <input type="text" class="form-control" id="search">
+                                    </div>
+                                    <ul class="list-group" id="messageList"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz4fnFO9gybV6zzD0VVFG1L39M3vOtpoT9Fuj0E+nHBT4zY3oflpjC3gJK"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore-compat.js"></script>
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyAn8vP68qROt2UxcZgm9nwTYGiZeDNkZRg",
-            authDomain: "jegyzet-436db.firebaseapp.com",
-            projectId: "jegyzet-436db",
-            storageBucket: "jegyzet-436db.appspot.com",
-            messagingSenderId: "756819752320",
-            appId: "1:756819752320:web:16e99ee6ace602bb8bbd65"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore(app);
-        const titleInput = document.getElementById("titleInput")
-        const noteInput = document.getElementById("noteInput")
-        const priorityInput = document.getElementById("prioritySelect")
-        const sendBtn = document.getElementById("sendNote")
-        const msgList = document.getElementById("messageList")
-        const editBtn = document.getElementById("editNote")
+        const titleInput = document.getElementById("titleInput");
+        const noteInput = document.getElementById("noteInput");
+        const priorityInput = document.getElementById("prioritySelect");
+        const sendBtn = document.getElementById("sendNote");
+        const msgList = document.getElementById("messageList");
+        const editBtn = document.getElementById("editNote");
 
         sendBtn.addEventListener("click", function (e) {
-            e.preventDefault()
-            const title = titleInput.value
-            const msg = noteInput.value
-            const priority = priorityInput.value
-            db.collection("jegyzetek").add({ cim: title, jegyzet: msg, statusz: priority })
-                .then((docRef) => {
-                    console.log(docRef)
-                })
-                .catch((e) => {
-                    console.error(e)
-                })
-        })
+            e.preventDefault();
+            const title = titleInput.value;
+            const note = noteInput.value;
+            const priority = priorityInput.value;
+            db.collection("jegyzetek").add({ cim: title, jegy: note, prioritas: priority });
+        });
+
+        db.collection("jegyzetek").onSnapshot(snapshot => {
+            let notes = "";
+            snapshot.forEach(doc => {
+                notes += `<li class="list-group-item">
+                            <h5>${doc.data().cim}</h5>
+                            <p>${doc.data().jegy}</p>
+                            <button class="btn btn-danger" onclick="deleteNote('${doc.id}')">Törlés</button>
+                            <button class="btn btn-primary" onclick="editNote('${doc.id}', '${doc.data().cim}', '${doc.data().jegy}')">Szerkesztés</button>
+                          </li>`;
+            });
+            msgList.innerHTML = notes;
+        });
+
+        function deleteNote(id) {
+            db.collection("jegyzetek").doc(id).delete();
+        }
+
+        function editNote(id, title, note) {
+            document.getElementById("editForm").style.display = "block";
+            document.getElementById("editId").value = id;
+            document.getElementById("edittitleInput").value = title;
+            document.getElementById("editnoteInput").value = note;
+        }
+
+        editBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const id = document.getElementById("editId").value;
+            const title = document.getElementById("edittitleInput").value;
+            const note = document.getElementById("editnoteInput").value;
+            db.collection("jegyzetek").doc(id).update({ cim: title, jegy: note })
+                .then(() => {
+                    document.getElementById("editForm").style.display = "none";
+                });
+        });
     </script>
 </body>
 
