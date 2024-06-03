@@ -25,7 +25,7 @@
                       </div>
       
                       <form>
-                        <p>Adj meg egy tetszőleges felhasználónevet és egy jelszót!</p>
+                        <p>Adj meg egy email címet és egy jelszót!</p>
       
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="email" id="form2Example11" class="form-control"/>
@@ -38,13 +38,13 @@
                         </div>
 
                         <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="password" id="form2Example22" class="form-control" />
-                            <label class="form-label" for="form2Example22">Jelszó megismétlése</label>
+                            <input type="password" id="form2Example33" class="form-control" />
+                            <label class="form-label" for="form2Example33">Jelszó megismétlése</label>
                           </div>
       
       
                         <div class="d-flex align-items-center justify-content-center pb-4">
-                          <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger" onclick="window.location.href = '/';">Regisztráció</button>
+                          <button id="register" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger">Regisztráció</button>
                         </div>
       
                       </form>
@@ -63,4 +63,44 @@
           </div>
         </div>
       </section>
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNWYxskOcWrPruI5fmx8BM51V4zgcJVYU",
+            authDomain: "kozossegi-esemeny-portal.firebaseapp.com",
+            projectId: "kozossegi-esemeny-portal",
+            storageBucket: "kozossegi-esemeny-portal.appspot.com",
+            messagingSenderId: "987444679907",
+            appId: "1:987444679907:web:d8f55e9b459ab722a7a1d6"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                window.location = 'index.html'; //If User is not logged in, redirect to login page
+            }
+        });
+
+        const emailInput = document.getElementById("form2Example11")
+        const passInput = document.getElementById("form2Example22")
+        const regisButton = document.getElementById("register")
+
+        regisButton.addEventListener('click', function (e) {
+            e.preventDefault()
+
+            createUserWithEmailAndPassword(auth, emailInput.value, passInput.value).then(function (userCredential) {
+                var user = userCredential.user;
+                console.log("ok ", user);
+            })
+                .catch(function (error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log("Hiba: " + errorCode + " " + errorMessage)
+                })
+        })
+    </script>
 </html>

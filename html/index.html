@@ -90,13 +90,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Köröskényi</a>
+                            
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">István</a>
+                            
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="loginest.html">Gádzsó</a>
+                            <a class="nav-link" href="eventAdd.html">Új esemnény létrehozása</a>
                         </li>
                     </ul>
                 </div>
@@ -107,98 +107,18 @@
     <section class="h-100 gradient-form">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-10">
+                <div class="col-xl-10" id="post">
                     <div class="card rounded-3 text-black">
                         <div class="row g-0">
                             <div class="col-lg-4 gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4"></h4>
-                                    <p class="small mb-0"></p>
+                                    <h4 class="mb-4">asd</h4>
+                                    <p class="small mb-0">asd</p>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="card-body p-md-5 mx-md-4">
-                                    <div class="text-center">
-                                       
-                                    </div>
-                                    <div class="list-group-item">
-                                      ide kene a backend (kepek, stb) 
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="h-100 gradient-form">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-10">
-                    <div class="card rounded-3 text-black">
-                        <div class="row g-0">
-                            <div class="col-lg-4 gradient-custom-2">
-                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4">Jegyzet App</h4>
-                                    <p class="small mb-0">Egyszerű és hatékony módja a jegyzetek kezelésének és rendszerezésének. Adj hozzá új jegyzeteket, szerkeszd a meglévőket, és kövesd nyomon a fontos feladataidat.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="card-body p-md-5 mx-md-4">
-                                    <div class="text-center">
-                                        <h1>Új jegyzet</h1>
-                                    </div>
-                                    <div class="list-group-item">
-                                        <form>
-                                            <div class="mb-3">
-                                                <label for="titleInput" class="form-label">Cím</label>
-                                                <input type="text" class="form-control" id="titleInput" placeholder="Add meg a címet">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="noteInput" class="form-label">Jegyzet</label>
-                                                <textarea class="form-control" id="noteInput" rows="3" placeholder="Írd ide a jegyzetet"></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="prioritySelect">Prioritás:</label>
-                                                <select class="form-control" id="prioritySelect">
-                                                    <option value="Fontos">Fontos</option>
-                                                    <option value="Későbbre halasztva">Későbbre halasztva</option>
-                                                    <option value="Továbbítani">Továbbítani</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button class="btn btn-outline-danger" id="sendNote">Jegyzet hozzáadása</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div id="editForm" style="display: none;" class="list-group-item">
-                                        <form>
-                                            <h2>Jegyzet szerkesztése</h2>
-                                            <div class="mb-3">
-                                                <label for="editId" class="form-label">ID</label>
-                                                <input type="text" class="form-control" id="editId" disabled="true">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="edittitleInput" class="form-label">Cím</label>
-                                                <input type="text" class="form-control" id="edittitleInput">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="editnoteInput" class="form-label">Jegyzet</label>
-                                                <textarea class="form-control" id="editnoteInput" rows="3"></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button class="btn btn-outline-danger" id="editNote">Jegyzet szerkesztése</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <h1>Jegyzetek</h1>
-                                    <div class="mb-3">
-                                        <label for="search" class="form-label">Keresés</label>
-                                        <input type="text" class="form-control" id="search">
-                                    </div>
-                                    <ul class="list-group" id="messageList"></ul>
+                                    asd
                                 </div>
                             </div>
                         </div>
@@ -213,9 +133,129 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNWYxskOcWrPruI5fmx8BM51V4zgcJVYU",
+            authDomain: "kozossegi-esemeny-portal.firebaseapp.com",
+            projectId: "kozossegi-esemeny-portal",
+            storageBucket: "kozossegi-esemeny-portal.appspot.com",
+            messagingSenderId: "987444679907",
+            appId: "1:987444679907:web:d8f55e9b459ab722a7a1d6"
+        };
+
+        const postContainer = document.getElementById("post")
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+        const auth = firebase.auth(app);
+
+        let useremail;
+
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location = 'logintest.html';
+            }
+            useremail = user.email
+        })
+
+        function createPost(name, type, text, time, creator, applicants, postId){
+            
+            const cardDiv = document.createElement("div")
+            cardDiv.classList = "card rounded-3"
+            const row = document.createElement("div")
+            row.classList = "row g-0"
+
+            const gradientBody = document.createElement("div")
+            gradientBody.classList = "col-lg-4 gradient-custom-2"
+            const gradientText = document.createElement("div")
+            gradientText.classList = "text-white px-3 py-4 p-md-5 mx-md-4"
+            const eventtitle = document.createElement("h4")
+            eventtitle.classList = "mb-4"
+            eventtitle.innerText = name
+            const eventtype = document.createElement("p")
+            eventtype.classList = "small mb-0"
+            eventtype.innerText = type
+
+            const column = document.createElement("div")
+            column.classList = "col-lg-8"
+            const description = document.createElement("div")
+            description.classList = "card-body p-md-5 mx-md-4"
+            description.innerText = text+"\nIdőpont: "+time
+
+            const joinBtn = document.createElement("input")
+            joinBtn.type = "button"
+            joinBtn.id = "join"
+            joinBtn.classList = "btn btn-primary btn-block mt-3"
+            joinBtn.style = "display: block;"
+
+            const jelentkezok = document.createElement("p")
+            jelentkezok.innerHTML = "Jelentkezők: "+applicants
+
+            console.log(applicants)
+            if (applicants.includes(useremail)){
+                joinBtn.value = "Visszavonás"
+                joinBtn.onclick = function(){
+                    console.log(postId)
+                    const asd = db.collection('Esemenyek').doc(postId)
+                    asd.update({
+                        jelentkezok: firebase.firestore.FieldValue.arrayRemove(useremail)
+                    }).then(() => {
+                        reDraw()
+                    }).catch(error => {
+                        console.error("Error updating document: ", error);
+                    });
+                }
+            } else {
+                joinBtn.value = "Jelentkezés"
+                joinBtn.onclick = function(){
+                    console.log(postId)
+                    const asd = db.collection('Esemenyek').doc(postId)
+                    asd.update({
+                        jelentkezok: firebase.firestore.FieldValue.arrayUnion(useremail)
+                    }).then(() => {
+                        reDraw()
+                    }).catch(error => {
+                        console.error("Error updating document: ", error);
+                    });
+                }
+            }
+
+            cardDiv.appendChild(row)
+            row.appendChild(gradientBody)
+            row.appendChild(column)
+            column.appendChild(description)
+            gradientBody.appendChild(gradientText)
+            gradientText.appendChild(eventtitle)
+            gradientText.appendChild(eventtype)
+            description.appendChild(joinBtn)
+            description.appendChild(jelentkezok)
+            postContainer.appendChild(cardDiv)
+        }
+
+        function reDraw(){
+            postContainer.innerHTML = ""
+            db.collection("Esemenyek").onSnapshot((quarySnapshots) => {
+                quarySnapshots.forEach((doc) => {
+                    let data = doc.data()
+                    createPost(data.nev, data.tipus, data.leiras, data.idopont, data.keszito, data.jelentkezok, doc.id)
+                })
+            })
+        }
+
+        db.collection("Esemenyek").onSnapshot((quarySnapshots) => {
+            postContainer.innerHTML = ""
+            quarySnapshots.forEach((doc) => {
+                console.log(doc.id)
+                console.log(doc.data())
+                let data = doc.data()
+                createPost(data.nev, data.tipus,  data.leiras, data.idopont, data.keszito, data.jelentkezok, doc.id)
+            })
+        })
+    </script>
+    <!--<script>
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
@@ -275,7 +315,7 @@
                     document.getElementById("editForm").style.display = "none";
                 });
         });
-    </script>
+    </script>-->
 </body>
 
 </html>

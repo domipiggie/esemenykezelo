@@ -30,16 +30,16 @@
 
               <div class="form-group">
                 <label for="yap">Esemény kategóriája:</label>
-                <select class="form-select" aria-label="Default select example">
+                <select id="category" class="form-select" aria-label="Default select example">
                     <option selected>Válassz kategóriát</option>
-                    <option value="1">Sport</option>
-                    <option value="2">Közösségi</option>
-                    <option value="2">Társadalmi</option>
-                    <option value="3">Tudományos</option>
-                    <option value="3">Kulturális</option>
-                    <option value="4">Szórakozás</option>
-                    <option value="5">Vallási</option>
-                    <option value="6">Szakmai</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Közösségi">Közösségi</option>
+                    <option value="Társadalmi">Társadalmi</option>
+                    <option value="Tudományos">Tudományos</option>
+                    <option value="Kulturális">Kulturális</option>
+                    <option value="Szórakozás">Szórakozás</option>
+                    <option value="Vallási">Vallási</option>
+                    <option value="Szakmai">Szakmai</option>
                 </select>
               </div>
             
@@ -57,9 +57,57 @@
               </div>
             </div>
 
-            <button type="submit">Esemény hozzáadása</button>
+            <button id="addEvent">Esemény hozzáadása</button>
 
         </div>
     </form>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNWYxskOcWrPruI5fmx8BM51V4zgcJVYU",
+            authDomain: "kozossegi-esemeny-portal.firebaseapp.com",
+            projectId: "kozossegi-esemeny-portal",
+            storageBucket: "kozossegi-esemeny-portal.appspot.com",
+            messagingSenderId: "987444679907",
+            appId: "1:987444679907:web:d8f55e9b459ab722a7a1d6"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+        const auth = firebase.auth(app);
+
+        const eventName = document.getElementById("name")
+        const eventCategory = document.getElementById("category")
+        const eventDesc = document.getElementById("yap")
+        const eventDate = document.getElementById("date")
+        const eventPlace = document.getElementById("place")
+        const addBtn = document.getElementById("addEvent")
+
+        let uid;
+
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location = '../index.html';
+            } else {
+                print(user)
+                uid = user.email
+            }
+        })
+
+        addBtn.addEventListener('click', function (e) {
+            e.preventDefault()
+            db.collection("Esemenyek").add({ nev: eventName.value, tipus: eventCategory.value, leiras: eventDesc.value, idopont: eventDate.value, helyszin: eventPlace.value, jelentkezok: [], keszito: uid })
+                .then((docRef) => {
+                    console.log(docRef)
+                    window.location = 'index.html'
+                })
+                .catch((e) => {
+                    console.error(e)
+                    alert("Hiba történt az esemény létrehozása közben!")
+                })
+        })
+    </script>
 </body>
 </html>
